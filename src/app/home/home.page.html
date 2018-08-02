@@ -1,12 +1,23 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Ionic Blank
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="doSomething()">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   The world is your oyster.
   <p>If you get lost, the <a target="_blank" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+
+  <ion-list no-lines>
+    <ion-item [href]="'/Detail/' + todo.id" detail="true" *ngFor="let todo of todoService.todos">
+      <ion-label>{{ todo.title }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
